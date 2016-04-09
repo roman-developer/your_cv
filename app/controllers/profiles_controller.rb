@@ -3,7 +3,6 @@ class ProfilesController < ApplicationController
 
 	def show
 		@profile = Profile.find(params[:id])
-		#render component: 'Profile', props: { profile: @profile }, tag: 'span', class: 'profile'
 	end
 
 	def new
