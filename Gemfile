@@ -3,9 +3,12 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
-
+# Use MySQL database gem
 gem 'mysql2'
-
+# Use reactjs with rails
+gem 'react-rails', '~> 1.6.0'
+# Use devise for authorization users
+gem 'devise'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
