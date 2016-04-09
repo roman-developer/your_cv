@@ -35,11 +35,13 @@ ActiveRecord::Schema.define(version: 20160409143319) do
     t.integer  "education_id"
     t.integer  "experience_id"
     t.integer  "course_id"
+    t.integer  "user_id"
   end
 
   add_index "cvs", ["course_id"], name: "index_cvs_on_course_id", using: :btree
   add_index "cvs", ["education_id"], name: "index_cvs_on_education_id", using: :btree
   add_index "cvs", ["experience_id"], name: "index_cvs_on_experience_id", using: :btree
+  add_index "cvs", ["user_id"], name: "index_cvs_on_user_id", using: :btree
 
   create_table "educations", force: true do |t|
     t.string  "degree"
