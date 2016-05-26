@@ -11,8 +11,6 @@ gem 'react-rails', '~> 1.6.0'
 gem 'devise'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-# Use materialize for styles
-#gem 'materialize-sass'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -36,6 +34,9 @@ gem 'spring',        group: :development
 gem 'pry-rails', group: :development
 
 gem 'json'
+
+
+gem "twitter-bootstrap-rails"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
