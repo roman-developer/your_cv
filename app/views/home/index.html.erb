@@ -6,5 +6,5 @@
 	<% @cvs.each do |cv| %>
 		<li><%= cv.profile_name %></li>
 	<% end %>
-	<li>Create CV</li>
+	<li><%= link_to "Crear CV", new_cv_path %></li>
 </ul>

@@ -14,6 +14,11 @@ Rails.application.routes.draw do
   end
 
   resources :profiles, except: [:index]
+  resources :cvs, except: [:index] do
+    resources :educations
+    resources :experiences
+    resources :courses
+  end
   
 
   # Example of regular route:
