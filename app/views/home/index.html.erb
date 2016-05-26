@@ -1,18 +1,23 @@
-<h1>Welcome to Your CV</h1>
-
-<div class="btn-group" role="group" aria-label="...">
-  <button type="button" class="btn btn-default"><%= @user.has_profile? ? (link_to "Ver perfil", profile_path(@user.profile)) : (link_to "Crear perfil", new_profile_path) %></button>
-  <button type="button" class="btn btn-default"><%= link_to "Crear CV", new_curriculum_path %></button>
+<div class="title_section">
+	<h1>Welcome to Your CV</h1>
 </div>
+<div class="panel panel-default">
+  <div class="panel-body">
+		<div class="btn-group" role="group" aria-label="...">
+		  <button type="button" class="btn btn-default"><%= @user.has_profile? ? (link_to "Ver perfil", profile_path(@user.profile)) : (link_to "Crear perfil", new_profile_path) %></button>
+		  <button type="button" class="btn btn-default"><%= link_to "Crear CV", new_curriculum_path %></button>
+		</div>
 
 
-<% @user.curriculums.each do|cv| %>
-	<div class="card">
-		<%= link_to curriculum_path(cv)  do %>
-	  	<div class="content">
-	    	<h4 class="title"><i class="fa fa-briefcase" aria-hidden="true"></i> <%= cv.professional_profile %></h4>
-	    	<p class="text"><%= cv.summary %></p>
-	  	</div>
+		<% @user.curriculums.each do|cv| %>
+			<div class="card">
+				<%= link_to curriculum_path(cv)  do %>
+			  	<div class="content">
+			    	<h4 class="title"><i class="fa fa-briefcase" aria-hidden="true"></i> <%= cv.professional_profile %></h4>
+			    	<p class="text"><%= cv.summary %></p>
+			  	</div>
+				<% end %>
+			</div>
 		<% end %>
 	</div>
-<% end %>
+</div>

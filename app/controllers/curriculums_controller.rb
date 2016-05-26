@@ -10,7 +10,7 @@ class CurriculumsController < ApplicationController
   
   def create
     @curriculum = Curriculum.new(cv_params)
-
+    @curriculum.user = current_user
     if @curriculum.save
       flash[:notice] = "Has creado un nuevo CV"
       redirect_to authenticated_root_path

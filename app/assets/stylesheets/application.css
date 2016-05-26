@@ -15,6 +15,24 @@
  *= require bootstrap-datepicker
  */
 
+.title_section{
+	padding-left: 1%;
+	color: #284C79;
+}
+
+.panel{
+	border: 0px;
+}
+
+.panel .panel-heading{
+	padding: 1px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  background-color: #284c79;
+  color: #fff;
+}
+
 .card {
   overflow: hidden;
   position: relative;
