@@ -1,0 +1,108 @@
+<div class="title_section">
+	<h1>Tu Curriculum Vitae.</h1>
+</div>
+
+
+<div>
+<%= form_for @curriculum, html:{class: "form-horizontal"}  do |f| %>
+
+	<div class="form-group">
+	  <%= f.label :professional_profile, class: "col-sm-2"  %>
+	  <div class="col-sm-5"><%= f.text_field :professional_profile, placeholder: 'Enter your professional profile (examples: developer, manager, bussinessman...)', class: "form-control" %></div>
+  </div>
+	
+	<div class="form-group">
+	  <%= f.label :summary, class: "col-sm-2"  %>
+	  <div class="col-sm-5"><%= f.text_area :summary, placeholder: 'Describe yourself briefly', class: "form-control" %></div>
+  </div>
+
+	<%= f.fields_for :experiences, html:{class: "form-horizontal"} do |ex| %>
+		<h2>Experiencia</h2>
+		<div class="form-group">
+			<%= ex.label :job, class: "col-sm-2"  %>
+			<div class="col-sm-5"><%= ex.text_field :job , class: "form-control" %></div>
+		</div>
+		<div class="form-group">
+			<%= ex.label :company, class: "col-sm-2"  %>
+			<div class="col-sm-5"><%= ex.text_field :company , class: "form-control" %></div>
+		</div>
+		<div class="form-group">
+			<%= ex.label :start_date, class: "col-sm-2"  %>
+			<div class="col-sm-5"><%= ex.text_field :start_date , class: "form-control", 'data-provide'=>'datepicker' %></div>
+		</div>
+		<div class="form-group">
+			<%= ex.label :end_date, class: "col-sm-2"  %>
+			<div class="col-sm-5"><%= ex.text_field :end_date , class: "form-control", 'data-provide'=>'datepicker' %></div>
+		</div>
+		<div class="form-group">
+			<%= ex.label :description, class: "col-sm-2"  %>
+			<div class="col-sm-5"><%= ex.text_area :description , class: "form-control" %></div>
+		</div>
+	<% end %>
+	
+
+	<%= f.fields_for :educations, html:{class: "form-horizontal"} do |ed| %>
+		<h2>Educacion</h2>
+		<div class="form-group">
+			<%= ed.label :degree, class: "col-sm-2"  %>
+			<div class="col-sm-5"><%= ed.text_field :degree , class: "form-control" %></div>
+		</div>
+		<div class="form-group">
+			<%= f.label :study_center, class: "col-sm-2"  %>
+			<div class="col-sm-5"><%= ed.text_field :study_center , class: "form-control" %></div>
+		</div>
+		<div class="form-group">
+			<%= f.label :start_date, class: "col-sm-2"  %>
+			<div class="col-sm-5"><%= ed.text_field :start_date , class: "form-control", 'data-provide'=>'datepicker' %></div>
+		</div>
+		<div class="form-group">
+			<%= f.label :end_date, class: "col-sm-2"  %>
+			<div class="col-sm-5"><%= ed.text_field :end_date , class: "form-control", 'data-provide'=>'datepicker' %></div>
+		</div>
+	<% end %>
+
+	<%= f.fields_for :courses, html:{class: "form-horizontal"} do |c| %>
+		<h2>Cursos</h2>
+		<div class="form-group">
+			<%= c.label :name, class: "col-sm-2"  %>
+			<div class="col-sm-5"><%= c.text_field :name , class: "form-control" %></div>
+		</div>
+		<div class="form-group">
+			<%= c.label :study_center, class: "col-sm-2"  %>
+			<div class="col-sm-5"><%= c.text_field :study_center , class: "form-control" %></div>
+		</div>
+		<div class="form-group">
+			<%= c.label :hours, class: "col-sm-2"  %>
+			<div class="col-sm-5"><%= c.text_field :hours , class: "form-control" %></div>
+		</div>
+		<div class="form-group">
+			<%= c.label :start_date, class: "col-sm-2"  %>
+			<div class="col-sm-5"><%= c.text_field :start_date , class: "form-control", 'data-provide'=>'datepicker' %></div>
+		</div>
+		<div class="form-group">
+			<%= c.label :end_date, class: "col-sm-2"  %>
+			<div class="col-sm-5"><%= c.text_field :end_date , class: "form-control", 'data-provide'=>'datepicker' %></div>
+		</div>
+	<% end %>
+
+	<h2>Idiomas</h2>
+	<div class="form-group">
+	  <%= f.label :mother_tongue, class: "col-sm-2"  %>
+	  <div class="col-sm-5"><%= f.text_field :mother_tongue, placeholder: 'Example: English', class: "form-control" %></div>
+	</div>
+	<div class="form-group">
+	  <%= f.label :language_1, class: "col-sm-2"  %>
+	  <div class="col-sm-5"><%= f.text_field :language_1, placeholder: 'Example: Spanish', class: "form-control" %></div>
+  </div>
+	<div class="form-group">
+	  <%= f.label :language_2, class: "col-sm-2"  %>
+	  <div class="col-sm-5"><%= f.text_field :language_2, placeholder: 'Example: French', class: "form-control" %></div>
+  </div>
+
+	<div class="form-group">
+		<div class="col-sm-2"><%= f.submit "Crear CV", class: "btn btn-success" %></div>
+		<div class="col-sm-10"><%= link_to "Inicio", authenticated_root_path %></div>
+	</div>
+<% end %>
+</div>
+

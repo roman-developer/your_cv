@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :profile
-  has_many :cvs
+  has_many :curriculums
 
   def has_profile?
   	self.profile.present?
