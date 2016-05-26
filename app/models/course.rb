@@ -1,6 +1,6 @@
 class Course < ActiveRecord::Base
 
-	belongs_to :cv
+	belongs_to :curriculum
 
 
 end

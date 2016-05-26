@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :profiles, except: [:index]
-  resources :cvs, except: [:index] do
+  resources :curriculums, except: [:index] do
     resources :educations
     resources :experiences
     resources :courses

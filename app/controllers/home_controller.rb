@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 
 	def index
 		@user = current_user
-		@cvs = Cv.where(user_id: current_user)
+		@curriculums = Curriculum.where(user_id: current_user)
 	end
 
 end

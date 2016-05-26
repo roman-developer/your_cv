@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160409143319) do
+ActiveRecord::Schema.define(version: 20160526104326) do
 
   create_table "courses", force: true do |t|
     t.string  "name"
@@ -19,12 +19,12 @@ ActiveRecord::Schema.define(version: 20160409143319) do
     t.integer "hours"
     t.date    "start_date"
     t.date    "end_date"
-    t.integer "cv_id"
+    t.integer "curriculum_id"
   end
 
-  add_index "courses", ["cv_id"], name: "index_courses_on_cv_id", using: :btree
+  add_index "courses", ["curriculum_id"], name: "index_courses_on_curriculum_id", using: :btree
 
-  create_table "cvs", force: true do |t|
+  create_table "curriculums", force: true do |t|
     t.string   "professional_profile"
     t.string   "mother_tongue"
     t.string   "language_1"
@@ -36,22 +36,23 @@ ActiveRecord::Schema.define(version: 20160409143319) do
     t.integer  "experience_id"
     t.integer  "course_id"
     t.integer  "user_id"
+    t.string   "summary"
   end
 
-  add_index "cvs", ["course_id"], name: "index_cvs_on_course_id", using: :btree
-  add_index "cvs", ["education_id"], name: "index_cvs_on_education_id", using: :btree
-  add_index "cvs", ["experience_id"], name: "index_cvs_on_experience_id", using: :btree
-  add_index "cvs", ["user_id"], name: "index_cvs_on_user_id", using: :btree
+  add_index "curriculums", ["course_id"], name: "index_curriculums_on_course_id", using: :btree
+  add_index "curriculums", ["education_id"], name: "index_curriculums_on_education_id", using: :btree
+  add_index "curriculums", ["experience_id"], name: "index_curriculums_on_experience_id", using: :btree
+  add_index "curriculums", ["user_id"], name: "index_curriculums_on_user_id", using: :btree
 
   create_table "educations", force: true do |t|
     t.string  "degree"
     t.string  "study_center"
     t.date    "start_date"
     t.date    "end_date"
-    t.integer "cv_id"
+    t.integer "curriculum_id"
   end
 
-  add_index "educations", ["cv_id"], name: "index_educations_on_cv_id", using: :btree
+  add_index "educations", ["curriculum_id"], name: "index_educations_on_curriculum_id", using: :btree
 
   create_table "experiences", force: true do |t|
     t.string  "job"
@@ -59,10 +60,10 @@ ActiveRecord::Schema.define(version: 20160409143319) do
     t.date    "start_date"
     t.date    "end_date"
     t.text    "description"
-    t.integer "cv_id"
+    t.integer "curriculum_id"
   end
 
-  add_index "experiences", ["cv_id"], name: "index_experiences_on_cv_id", using: :btree
+  add_index "experiences", ["curriculum_id"], name: "index_experiences_on_curriculum_id", using: :btree
 
   create_table "profiles", force: true do |t|
     t.string   "name"
