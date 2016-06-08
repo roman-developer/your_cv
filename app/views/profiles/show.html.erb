@@ -1,9 +1,22 @@
-<%= react_component 'Profile', { 
-																	name: @profile.name, 
-																	lastName: @profile.last_name,
-																	age: @profile.age,
-															    phone: @profile.phone,
-															    url1: @profile.url_1,
-															    url2: @profile.url_2,
-															    url3: @profile.url_3
-																} %>
+<div class="title_section">
+	<h1 align="center">Tu perfil personal - <%= @profile.full_name %></h1>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+  	<h3>Datos personales</h3>
+  </div>
+  <div class="panel-body">
+		<%= react_component 'Profile', { 
+																			name: @profile.name, 
+																			lastName: @profile.last_name,
+																			age: @profile.age,
+																	    phone: @profile.phone,
+																	    url1: @profile.url_1,
+																	    url2: @profile.url_2,
+																	    url3: @profile.url_3
+																		} %>
+	</div>
+	<div class="btn-group" role="group" >
+		<button type="button" class="btn btn-default"><%= link_to "Inicio", authenticated_root_path %></button>
+	</div>
+</div>

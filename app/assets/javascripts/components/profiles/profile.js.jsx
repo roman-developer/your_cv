@@ -12,13 +12,15 @@ var Profile = React.createClass({
   render: function() {
     return (
       <div>
-        <div>Name: {this.props.name}</div>
-        <div>Last Name: {this.props.lastName}</div>
-        <div>Age: {this.props.age}</div>
-        <div>Phone: {this.props.phone}</div>
-        <div>Url 1: {this.props.url1}</div>
-        <div>Url 2: {this.props.url2}</div>
-        <div>Url 3: {this.props.url3}</div>
+        <ul>
+        <li><b>Nombre:</b> {this.props.name}</li>
+        <li><b>Apellidos:</b>  {this.props.lastName}</li>
+        <li><b>Edad:</b>  {this.props.age}</li>
+        <li><b>Telefono:</b> {this.props.phone}</li>
+        <li><b>Url1:</b> {this.props.url1}</li>
+        <li><b>Url2:</b> {this.props.url2}</li>
+        <li><b>Url3:</b> {this.props.url3}</li>
+        </ul>
       </div>
     );
   }

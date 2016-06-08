@@ -6,6 +6,7 @@
 		<div class="btn-group" role="group" aria-label="...">
 		  <button type="button" class="btn btn-default"><%= @user.has_profile? ? (link_to "Ver perfil", profile_path(@user.profile)) : (link_to "Crear perfil", new_profile_path) %></button>
 		  <button type="button" class="btn btn-default"><%= link_to "Crear CV", new_curriculum_path %></button>
+		  <button type="button" class="btn btn-default"><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></button>
 		</div>
 
 
