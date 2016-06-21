@@ -1,0 +1,111 @@
+<div class="title_section">
+	<h1 align="center">Curriculum Vitae - <%= @curriculum.user.profile.full_name %></h1>
+</div>
+
+<div class="panel panel-default">
+	<div class="btn-group" role="group" >
+	  <button type="button" class="btn btn-default">Editar <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+	  <button type="button" class="btn btn-default">Imprimir <i class="fa fa-print" aria-hidden="true"></i></button>
+	  <%= link_to "Inicio", authenticated_root_path, class: "btn btn-default" %>
+	</div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+  	<h3>Datos personales</h3>
+  </div>
+  <div class="panel-body">
+  	<div class="row">
+      <div class="col-md-1"><%= image_tag("avatar.png",size: "100x100", alt: "icon avatar") %></div>
+      <div class="col-md-11">
+      	<ul class="list-group">
+	    		<li class="list-group-item"><b>Nombre:</b> <%= @curriculum.user.profile.full_name %></li>
+	    		<li class="list-group-item"><b>Edad:</b> <%= @curriculum.user.profile.age %></li>
+	    		<li class="list-group-item"><i class="fa fa-phone" aria-hidden="true"></i> <%= @curriculum.user.profile.phone %></li>
+	    		<li class="list-group-item"><i class="fa fa-envelope" aria-hidden="true"></i> <%= @curriculum.user.email %></li>
+  			</ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+  	<h3>Perfil profesional</h3>
+  </div>
+  <div class="panel-body">
+  	<ul class="list-group">
+  		<li class="list-group-item"><b>Perfil:</b> <%= @curriculum.professional_profile %></li>
+  		<li class="list-group-item"><b>Extracto:</b> <%= @curriculum.summary %></li>
+		</ul>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+  	<h3>Experiencia Laboral</h3>
+  </div>
+  <div class="panel-body">
+  	<ul class="list-group">
+  		<% @curriculum.experiences.each do|experience| %>
+	  		<li class="list-group-item"><b>Empleo:</b> <%= experience.job %></li>
+	  		<li class="list-group-item"><b>Compañía:</b> <%= experience.company %></li>
+	  		<li class="list-group-item"><b>Descripción:</b> <%= experience.description %></li>
+	  		<li class="list-group-item"><b>Duración:</b> <%= experience.start_date %> - <%= experience.end_date.present? ? experience.end_date : 'Actualidad' %></li>
+  		<% end %>
+		</ul>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+  	<h3>Formación académica</h3>
+  </div>
+  <div class="panel-body">
+  	<ul class="list-group">
+  		<% @curriculum.educations.each do|education| %>
+	  		<li class="list-group-item"><b>Título:</b> <%= education.degree %></li>
+	  		<li class="list-group-item"><b>Centro:</b> <%= education.study_center %></li>
+	  		<li class="list-group-item"><b>Duración:</b> <%= education.start_date %> - <%= education.end_date.present? ? education.end_date : 'Actualidad' %></li>
+  		<% end %>
+		</ul>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+  	<h3>Formación complementaria</h3>
+  </div>
+  <div class="panel-body">
+  	<ul class="list-group">
+  		<% @curriculum.courses.each do|course| %>
+	  		<li class="list-group-item"><b>Título:</b> <%= course.name %></li>
+	  		<li class="list-group-item"><b>Centro:</b> <%= course.study_center %></li>
+	  		<li class="list-group-item"><b>Horas:</b> <%= course.hours %> </li>
+	  		<li class="list-group-item"><b>Duración:</b> <%= course.start_date %> - <%= course.end_date.present? ? course.end_date : 'Actualidad' %></li>
+  		<% end %>
+		</ul>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+  	<h3>Idiomas</h3>
+  </div>
+  <div class="panel-body">
+  	<ul class="list-group">
+  		<li class="list-group-item"><b>Lengua materna:</b> <%= @curriculum.mother_tongue %></li>
+  		<% if @curriculum.language_1.present? %><li class="list-group-item"><b>Idioma 1:</b> <%= @curriculum.language_1 %></li><% end %>
+  		<% if @curriculum.language_2.present? %><li class="list-group-item"><b>Idioma 2:</b> <%= @curriculum.language_2 %></li><% end %>
+		</ul>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
