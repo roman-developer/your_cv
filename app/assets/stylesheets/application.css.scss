@@ -14,7 +14,6 @@
  *= require_self
  *= require bootstrap-datepicker
  */
-@import "login.css.scss";
 
 .title_section{
 	padding-left: 1%;
@@ -49,12 +48,3 @@
 .content h4{ color: #fff;}
 .content{ margin-top:15px;}
 .content p{ color: #fff;}
-
-.input-group{
-  margin-top: 2px;
-  margin-bottom: 2px;
-}
-.form-control{
-  margin-top: 1px;
-  margin-bottom: 1px;
-}
