@@ -39,7 +39,10 @@ class CurriculumsController < ApplicationController
   # end
 
 	private
-	def cv_params
-    params.require(:curriculum).permit!
-  end  
+  def cv_params
+    params.require(:curriculum).permit(:professional_profile, :summary, :mother_tongue, :language_1, :language_2, :other, 
+      experiences_attributes: [:id, :job, :company, :start_date, :end_date, :description, :_destroy],
+      educations_attributes: [:id, :degree, :study_center, :start_date, :end_date, :_destroy],
+      courses_attributes: [:id, :name, :study_center, :start_date, :end_date, :hours, :_destroy])
+  end
 end
