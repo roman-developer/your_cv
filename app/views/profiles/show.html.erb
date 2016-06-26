@@ -7,11 +7,12 @@
   </div>
   <div class="panel-body">
   	<div class="row">
-	  	<div class="col-md-1"><%= image_tag("avatar.png",size: "100x100", alt: "icon avatar") %></div>
+	  	<div class="col-md-1"><%= @profile.avatar? ? image_tag(@profile.avatar_url, size: "100x100", alt: "my avatar") : image_tag("avatar.png",size: "100x100", alt: "icon avatar") %></div>
 	  	<div class="col-md-6"><%= react_component 'Profile', {data: ProfileSerializer.new(@profile).attributes} %></div>
   	</div>
 	</div>
 	<div class="btn-group" role="group" >
+		<%= link_to edit_profile_path(@profile), class: "btn btn-default" do %>Editar&nbsp;<i class="fa fa-pencil-square-o"></i><% end %>
 		<%= link_to "Inicio", authenticated_root_path, class: "btn btn-default" %>
 	</div>
 </div>
