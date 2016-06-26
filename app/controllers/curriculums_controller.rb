@@ -1,6 +1,6 @@
 class CurriculumsController < ApplicationController
 	before_action :authenticate_user!
-  before_action :load_cv, only: [:show, :edit, :update]
+  before_action :load_cv, only: [:show, :edit, :update, :destroy]
 
   def new
     @curriculum = Curriculum.new
@@ -34,6 +34,11 @@ class CurriculumsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @curriculum.destroy
+    redirect_to authenticated_root_path, notice: 'Tu CV ha sido eliminado del sistema'
   end
 
 	private
