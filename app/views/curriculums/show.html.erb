@@ -4,8 +4,8 @@
 
 <div class="panel panel-default">
 	<div class="btn-group" role="group" >
-	  <button type="button" class="btn btn-default">Editar <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-	  <button type="button" class="btn btn-default">Imprimir <i class="fa fa-print" aria-hidden="true"></i></button>
+	  <%= link_to edit_curriculum_path(@curriculum), class: "btn btn-default" do %>Editar&nbsp;<i class="fa fa-pencil-square-o" aria-hidden="true"></i><% end %>
+	  <button type="button" class="btn btn-default">Imprimir&nbsp;<i class="fa fa-print" aria-hidden="true"></i></button>
 	  <%= link_to "Inicio", authenticated_root_path, class: "btn btn-default" %>
 	</div>
 </div>
@@ -46,14 +46,14 @@
   	<h3>Experiencia Laboral</h3>
   </div>
   <div class="panel-body">
-  	<ul class="list-group">
-  		<% @curriculum.experiences.each do|experience| %>
+  	<% @curriculum.experiences.each do|experience| %>
+      <ul class="list-group">
 	  		<li class="list-group-item"><b>Empleo:</b> <%= experience.job %></li>
 	  		<li class="list-group-item"><b>Compañía:</b> <%= experience.company %></li>
 	  		<li class="list-group-item"><b>Descripción:</b> <%= experience.description %></li>
 	  		<li class="list-group-item"><b>Duración:</b> <%= experience.start_date %> - <%= experience.end_date.present? ? experience.end_date : 'Actualidad' %></li>
-  		<% end %>
-		</ul>
+		  </ul>
+    <% end %>
   </div>
 </div>
 
@@ -62,13 +62,13 @@
   	<h3>Formación académica</h3>
   </div>
   <div class="panel-body">
-  	<ul class="list-group">
-  		<% @curriculum.educations.each do|education| %>
+    <% @curriculum.educations.each do|education| %>
+  	  <ul class="list-group">
 	  		<li class="list-group-item"><b>Título:</b> <%= education.degree %></li>
 	  		<li class="list-group-item"><b>Centro:</b> <%= education.study_center %></li>
 	  		<li class="list-group-item"><b>Duración:</b> <%= education.start_date %> - <%= education.end_date.present? ? education.end_date : 'Actualidad' %></li>
-  		<% end %>
-		</ul>
+		  </ul>
+    <% end %>
   </div>
 </div>
 
@@ -77,14 +77,14 @@
   	<h3>Formación complementaria</h3>
   </div>
   <div class="panel-body">
-  	<ul class="list-group">
-  		<% @curriculum.courses.each do|course| %>
+  	<% @curriculum.courses.each do|course| %>
+      <ul class="list-group">
 	  		<li class="list-group-item"><b>Título:</b> <%= course.name %></li>
 	  		<li class="list-group-item"><b>Centro:</b> <%= course.study_center %></li>
 	  		<li class="list-group-item"><b>Horas:</b> <%= course.hours %> </li>
 	  		<li class="list-group-item"><b>Duración:</b> <%= course.start_date %> - <%= course.end_date.present? ? course.end_date : 'Actualidad' %></li>
-  		<% end %>
-		</ul>
+		  </ul>
+    <% end %>  
   </div>
 </div>
 

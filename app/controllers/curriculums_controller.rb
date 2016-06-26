@@ -1,5 +1,6 @@
 class CurriculumsController < ApplicationController
 	before_action :authenticate_user!
+  before_action :load_cv, only: [:show, :edit, :update]
 
   def new
     @curriculum = Curriculum.new
@@ -20,23 +21,20 @@ class CurriculumsController < ApplicationController
   end
 
   def show
-    @curriculum = Curriculum.find(params[:id])
     @educations = Education.where(curriculum: @curriculum)
     @experiences = Experience.where(curriculum: @curriculum)
     @courses = Course.where(curriculum: @curriculum)
   end
 
-  # def edit
-  #   @entity_categories = EntityCategory.all
-  # end
+  def edit ; end
 
-  # def update
-  #   if @entity.update_attributes(entity_params)
-  #     redirect_to entity_path(@entity), notice: 'La entidad ha sido actualizada con éxito'
-  #   else
-  #     render :edit
-  #   end
-  # end
+  def update
+    if @curriculum.update_attributes(cv_params)
+      redirect_to curriculum_path(@curriculum), notice: 'Tu CV ha sido actualizado con éxito'
+    else
+      render :edit
+    end
+  end
 
 	private
   def cv_params
@@ -44,5 +42,9 @@ class CurriculumsController < ApplicationController
       experiences_attributes: [:id, :job, :company, :start_date, :end_date, :description, :_destroy],
       educations_attributes: [:id, :degree, :study_center, :start_date, :end_date, :_destroy],
       courses_attributes: [:id, :name, :study_center, :start_date, :end_date, :hours, :_destroy])
+  end
+
+  def load_cv
+    @curriculum = Curriculum.find(params[:id])
   end
 end
