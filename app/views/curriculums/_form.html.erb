@@ -1,0 +1,65 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+		<%= form_for @curriculum, html:{class: "form-horizontal"}  do |f| %>
+
+			<div class="form-group">
+			  <%= f.label :professional_profile, class: "col-sm-2"  %>
+			  <div class="col-sm-5"><%= f.text_field :professional_profile, placeholder: 'Enter your professional profile (examples: developer, manager, bussinessman...)', class: "form-control" %></div>
+		  </div>
+			
+			<div class="form-group">
+			  <%= f.label :summary, class: "col-sm-2"  %>
+			  <div class="col-sm-5"><%= f.text_area :summary, placeholder: 'Describe yourself briefly', class: "form-control" %></div>
+		  </div>
+		  <hr/>
+			
+			<h3>Experiencia</h3>
+		  <div id: 'experiences'>
+		  	<%= f.fields_for :experiences do |experience| %>
+		  		<%= render 'experience_fields', f: experience %>
+		  		<%= link_to_add_association 'add experience', f, :experiences %>
+		  	<% end %>
+		  </div>
+			<hr/>
+
+			<h3>Educacion</h3>
+			<div id: 'educations'>
+				<%= f.fields_for :educations do |education| %>
+					<%= render 'education_fields', f: education %>
+		  		<%= link_to_add_association 'add education', f, :educations %>
+		  	<% end %>
+	  	</div>
+			<hr/>
+
+			<h3>Cursos</h3>
+			<div id: 'courses'>
+			<%= f.fields_for :courses do |course| %>
+				<%= render 'course_fields', f: course %>
+	  		<%= link_to_add_association 'add course', f, :courses %>
+			<% end %>
+			</div>	
+			<hr/>
+
+			<h3>Idiomas</h3>
+			<div class="form-group">
+			  <%= f.label :mother_tongue, class: "col-sm-2"  %>
+			  <div class="col-sm-5"><%= f.text_field :mother_tongue, placeholder: 'Example: English', class: "form-control" %></div>
+			</div>
+			<div class="form-group">
+			  <%= f.label :language_1, class: "col-sm-2"  %>
+			  <div class="col-sm-5"><%= f.text_field :language_1, placeholder: 'Example: Spanish', class: "form-control" %></div>
+		  </div>
+			<div class="form-group">
+			  <%= f.label :language_2, class: "col-sm-2"  %>
+			  <div class="col-sm-5"><%= f.text_field :language_2, placeholder: 'Example: French', class: "form-control" %></div>
+		  </div>
+
+			<div class="form-group">
+				<div class="col-sm-2"><%= f.submit "Enviar CV", class: "btn btn-success" %></div>
+				<div class="col-sm-10"><%= link_to "Inicio", authenticated_root_path, class: "btn btn-default" %></div>
+			</div>
+		<% end %>
+	</div>
+</div>
+
+

@@ -18,6 +18,10 @@
 			    	<p class="text"><%= cv.summary %></p>
 			  	</div>
 				<% end %>
+				<div class="card-block">
+					<%= link_to edit_curriculum_path(cv), class: "card-link pull-left" do %>Edit&nbsp;<i class="fa fa-pencil-square-o"></i><% end %>
+    			<%= link_to curriculum_path(cv), method: :delete,  data: { confirm: 'Are you sure?' }, class: "card-link pull-right" do %>Delete&nbsp;<i class="fa fa-times"></i><% end %>
+  			</div>
 			</div>
 		<% end %>
 	</div>
