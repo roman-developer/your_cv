@@ -1,6 +1,7 @@
 class CurriculumsController < ApplicationController
 	before_action :authenticate_user!
   before_action :load_cv, only: [:show, :edit, :update, :destroy]
+  before_action :load_education_experiences_and_courses, only: [:show]
 
   def new
     @curriculum = Curriculum.new
@@ -21,9 +22,13 @@ class CurriculumsController < ApplicationController
   end
 
   def show
-    @educations = Education.where(curriculum: @curriculum)
-    @experiences = Experience.where(curriculum: @curriculum)
-    @courses = Course.where(curriculum: @curriculum)
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "curriculum",   # Excluding ".pdf" extension.
+               template: 'curriculums/show_pdf.html.erb'
+      end
+    end
   end
 
   def edit ; end
@@ -51,5 +56,11 @@ class CurriculumsController < ApplicationController
 
   def load_cv
     @curriculum = Curriculum.find(params[:id])
+  end
+
+  def load_education_experiences_and_courses
+    @educations = Education.where(curriculum: Curriculum.find(params[:id]))
+    @experiences = Experience.where(curriculum: Curriculum.find(params[:id]))
+    @courses = Course.where(curriculum: Curriculum.find(params[:id]))
   end
 end

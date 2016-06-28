@@ -5,7 +5,7 @@
 <div class="panel panel-default">
 	<div class="btn-group" role="group" >
 	  <%= link_to edit_curriculum_path(@curriculum), class: "btn btn-default" do %>Editar&nbsp;<i class="fa fa-pencil-square-o"></i><% end %>
-	  <button type="button" class="btn btn-default">Imprimir&nbsp;<i class="fa fa-print" aria-hidden="true"></i></button>
+    <%= link_to curriculum_path(@curriculum, format: 'pdf'), target: "_blank", class: "btn btn-default" do %>Imprimir&nbsp;<i class="fa fa-print" aria-hidden="true"></i><% end %>
 	  <%= link_to "Inicio", authenticated_root_path, class: "btn btn-default" %>
 	</div>
 </div>
@@ -16,7 +16,7 @@
   </div>
   <div class="panel-body">
   	<div class="row">
-      <div class="col-md-1"><%= image_tag("avatar.png",size: "100x100", alt: "icon avatar") %></div>
+      <div class="col-md-1"><%= @curriculum.user.profile.avatar? ? image_tag(@curriculum.user.profile.avatar_url, size: "100x100", alt: "my avatar") : image_tag("avatar.png",size: "100x100", alt: "icon avatar") %></div>
       <div class="col-md-11">
       	<ul class="list-group">
 	    		<li class="list-group-item"><b>Nombre:</b> <%= @curriculum.user.profile.full_name %></li>

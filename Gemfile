@@ -41,8 +41,10 @@ gem 'bootstrap-datepicker-rails'
 
 gem "better_errors", group: [:development]
 gem 'active_model_serializers'
-gem "cocoon"
-gem 'carrierwave'
+gem "cocoon" # add/remove multi forms
+gem 'carrierwave' # upload images
+gem 'wicked_pdf' # pdf generator
+gem 'wkhtmltopdf-binary' 
 
 
 
