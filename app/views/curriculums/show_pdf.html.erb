@@ -7,11 +7,19 @@
   	<h3>Datos personales</h3>
   </div>
 	<div class="panel-body">
-		<%= @curriculum.user.profile.avatar? ? image_tag(@curriculum.user.profile.avatar_url, size: "100x100", alt: "my avatar") : image_tag("avatar.png",size: "100x100", alt: "icon avatar") %>
-		<b>Nombre:</b> <%= @curriculum.user.profile.full_name %><br/>
-		<b>Edad:</b> <%= @curriculum.user.profile.age %><br/>
-		<b>Telefono:</b> <%= @curriculum.user.profile.phone %><br/>
-		<b>Mail:</b> <%= @curriculum.user.email %><br/>
+    <div class="div-table">
+      <div class="div-table-row">
+    		<div class="div-table-col">
+          <%= @curriculum.user.profile.avatar? ? wicked_pdf_image_tag(@curriculum.user.profile.avatar_url, size: "100x100", alt: "my avatar") : wicked_pdf_image_tag("avatar.png",size: "100x100", alt: "icon avatar") %>
+        </div>
+        <div class="div-table-col">
+      		<b>Nombre:</b> <%= @curriculum.user.profile.full_name %><br/>
+      		<b>Edad:</b> <%= @curriculum.user.profile.age %><br/>
+      		<b>Telefono:</b> <%= @curriculum.user.profile.phone %><br/>
+      		<b>Mail:</b> <%= @curriculum.user.email %>
+        </div>
+      </div>
+    </div>
 	</div>  
 </div>
 
@@ -21,64 +29,112 @@
   	<h3>Perfil profesional</h3>
   </div>
 	<div class="panel-body">
-		<b>Perfil:</b> <%= @curriculum.professional_profile %><br/>
-		<b>Extracto:</b> <%= @curriculum.summary %><br/>
+    <div class="div-table">
+      <div class="div-table-row">
+    		<b>Perfil:</b> <%= @curriculum.professional_profile %><br/>
+    		<b>Extracto:</b> <%= @curriculum.summary %>
+      </div>
+    </div>
 	</div>  
 </div>
 
+<% if @curriculum.experiences.present? %>
 <div class="panel panel-default">
   <div class="panel-heading">
   	<h3>Experiencia Laboral</h3>
   </div>
 	<div class="panel-body">
 		<% @curriculum.experiences.each do|experience| %>
-			<b>Empleo:</b> <%= experience.job %><br/>
-	  	<b>Compañía:</b> <%= experience.company %><br/>
-	  	<b>Descripción:</b> <%= experience.description %><br/>
-	  	<b>Duración:</b> <%= experience.start_date %> - <%= experience.end_date.present? ? experience.end_date : 'Actualidad' %><br/>
-	  	<hr>
+      <div class="div-table">
+        <div class="div-table-row">
+          <div class="div-table-col">
+          <b><%= experience.start_date %> - <%= experience.end_date.present? ? experience.end_date : 'Actualidad' %></b>
+          </div>
+          <div class="div-table-col">
+    			<b>Empleo:</b> <%= experience.job %><br/>
+    	  	<b>Compañía:</b> <%= experience.company %><br/>
+    	  	<b>Descripción:</b> <%= experience.description %><br/>
+          </div>
+        </div>
+      </div>
     <% end %>
 	</div>  
 </div>
+<% end %>
 
+<% if @curriculum.educations.present? %>
 <div class="panel panel-default">
   <div class="panel-heading">
   	<h3>Formación académica</h3>
   </div>
   <div class="panel-body">
     <% @curriculum.educations.each do|education| %>
-    	<b>Título:</b> <%= education.degree %><br/>
-	  	<b>Centro:</b> <%= education.study_center %><br/>
-	  	<b>Duración:</b> <%= education.start_date %> - <%= education.end_date.present? ? education.end_date : 'Actualidad' %><br/>
-	  	<hr>
+      <div class="div-table">
+        <div class="div-table-row">
+          <div class="div-table-col">        
+            <b><%= education.start_date %> - <%= education.end_date.present? ? education.end_date : 'Actualidad' %></b>
+          </div>
+          <div class="div-table-col">
+          	<b>Título:</b> <%= education.degree %><br/>
+      	  	<b>Centro:</b> <%= education.study_center %><br/>
+          </div>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>
+<% end %>
 
+<% if @curriculum.courses.present? %>
 <div class="panel panel-default">
   <div class="panel-heading">
   	<h3>Formación complementaria</h3>
   </div>
   <div class="panel-body">
   	<% @curriculum.courses.each do|course| %>
-			<b>Título:</b> <%= course.name %><br/>
-  		<b>Centro:</b> <%= course.study_center %><br/>
-  		<b>Horas:</b> <%= course.hours %> <br/>
-  		<b>Duración:</b> <%= course.start_date %> - <%= course.end_date.present? ? course.end_date : 'Actualidad' %><br/>
-		  <hr>
+      <div class="div-table">
+        <div class="div-table-row">
+          <div class="div-table-col"> 
+            <b><%= course.start_date %> - <%= course.end_date.present? ? course.end_date : 'Actualidad' %></b>
+          </div>
+          <div class="div-table-col"> 
+      			<b>Título:</b> <%= course.name %><br/>
+        		<b>Centro:</b> <%= course.study_center %><br/>
+        		<b>Horas:</b> <%= course.hours %> <br/>
+  		    </div>
+        </div>
+      </div>
     <% end %>  
   </div>
 </div>
+<% end %>
 
 <div class="panel panel-default">
   <div class="panel-heading">
   	<h3>Idiomas</h3>
   </div>
   <div class="panel-body">
-		<b>Lengua materna:</b> <%= @curriculum.mother_tongue %><br/>
-		<% if @curriculum.language_1.present? %><b>Idioma 1:</b> <%= @curriculum.language_1 %><br/><% end %>
-		<% if @curriculum.language_2.present? %><b>Idioma 2:</b> <%= @curriculum.language_2 %><br/><% end %>
+    <div class="div-table">
+      <div class="div-table-row">
+    		<b>Lengua materna:</b> <%= @curriculum.mother_tongue %><br/>
+    		<% if @curriculum.language_1.present? %><b>Idioma 1:</b> <%= @curriculum.language_1 %><br/><% end %>
+    		<% if @curriculum.language_2.present? %><b>Idioma 2:</b> <%= @curriculum.language_2 %><br/><% end %>
+      </div>
+    </div>
   </div>
 </div>
+
+<% if @curriculum.other.present? %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>Observaciones</h3>
+  </div>
+  <div class="panel-body">
+      <div class="div-table">
+        <div class="div-table-row"><%= @curriculum.other %></div>
+      </div>
+  </div>
+</div>
+<% end %>
 
 

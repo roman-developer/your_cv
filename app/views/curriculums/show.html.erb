@@ -41,6 +41,7 @@
   </div>
 </div>
 
+<% if @curriculum.experiences.present? %>
 <div class="panel panel-default">
   <div class="panel-heading">
   	<h3>Experiencia Laboral</h3>
@@ -56,7 +57,9 @@
     <% end %>
   </div>
 </div>
+<% end %>
 
+<% if @curriculum.educations.present? %>
 <div class="panel panel-default">
   <div class="panel-heading">
   	<h3>Formación académica</h3>
@@ -71,7 +74,9 @@
     <% end %>
   </div>
 </div>
+<% end %>
 
+<% if @curriculum.courses.present? %>
 <div class="panel panel-default">
   <div class="panel-heading">
   	<h3>Formación complementaria</h3>
@@ -87,6 +92,7 @@
     <% end %>  
   </div>
 </div>
+<% end %>
 
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -101,6 +107,18 @@
   </div>
 </div>
 
+<% if @curriculum.other.present? %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>Observaciones</h3>
+  </div>
+  <div class="panel-body">
+    <ul class="list-group">
+      <li class="list-group-item"><%= @curriculum.other %></li>
+    </ul>
+  </div>
+</div>
+<% end %>
 
 
 
