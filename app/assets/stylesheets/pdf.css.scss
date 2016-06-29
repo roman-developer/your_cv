@@ -1,0 +1,25 @@
+@import 'application.css.scss';
+
+.panel .panel-heading{
+  page-break-inside: avoid !important;
+}
+
+.div-table{
+  display:table;         
+  width:auto;                 
+  border-spacing:5px;/*cellspacing:poor IE support for  this*/
+  margin:10px;
+  margin-bottom: 20px;
+}
+.div-table-row{
+  display:table-row;
+  width:auto;
+  clear:both;
+}
+.div-table-col{
+	position: relative;
+  float:left;/*fix for  buggy browsers*/
+  display:table-column;
+  padding-right: 5px;
+  width:300px;           
+}
