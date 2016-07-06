@@ -1,0 +1,28 @@
+es:
+  hello: "Hello world"
+  menu:
+    title: Bienvenidos a YourCV
+    buttons:
+      show_profile: Ver perfil
+      create_profile: Crear perfil
+      create_cv: Crear Curriculum
+      close: Cerrar sesión
+  profile:
+    create:
+      title: Crea tu Perfil.
+    edit:
+      title: Edita tu perfil.
+    form:
+      name: Nombre
+      last_name: Apellidos
+      age: Edad
+      phone: Teléfono
+      url_1: Sitio web 1
+      url_2: Sitio web 2
+      url_3: Sitio web 3
+      avatar: Imagen del perfil
+      submit: Enviar perfil
+      cancel: Cancelar
+      placeholder_url_1: "Escribe la dirección de tu web personal, por ejemplo: http://my-blog.com"
+      placeholder_url_2: "Escribe la dirección de tu web personal, por ejemplo: http://my-blog.com"
+      placeholder_url_3: "Escribe la dirección de tu web personal, por ejemplo: http://my-blog.com"
