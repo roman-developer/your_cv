@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_one :profile
   has_many :curriculums
 
+
   def has_profile?
   	self.profile.present?
   end

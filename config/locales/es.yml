@@ -1,7 +1,24 @@
 es:
   hello: "Hello world"
-  menu:
+  home:
     title: Bienvenidos a YourCV
+    delete_cv_confirm: ¿Estas seguro de que deseas eliminar tu curriculum?
+    delete_cv: Eliminar
+    edit_cv: Editar
+  registration:
+    email_placeholder: Correo electrónico
+    pass_placeholder: Contraseña
+    confirm_pass_placeholder: Confirmar contraseña
+    sing_in: Entrar
+    sing_up: Registrarse
+  session:
+    email_placeholder: Correo electrónico
+    pass_placeholder: Contraseña
+    confirm_pass_placeholder: Confirmar contraseña
+    sing_in: Entrar
+    sing_up: Registrarse
+    remember_pass: Recuerda tu contraseña
+  menu:
     buttons:
       show_profile: Ver perfil
       create_profile: Crear perfil
