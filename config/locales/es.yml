@@ -1,0 +1,94 @@
+es:
+  hello: "Hello world"
+  home:
+    title: Bienvenidos a YourCV
+    delete_cv_confirm: ¿Estas seguro de que deseas eliminar tu curriculum?
+    delete_cv: Eliminar
+    edit_cv: Editar
+  registration:
+    email_placeholder: Correo electrónico
+    pass_placeholder: Contraseña
+    confirm_pass_placeholder: Confirmar contraseña
+    sing_in: Entrar
+    sing_up: Registrarse
+  session:
+    email_placeholder: Correo electrónico
+    pass_placeholder: Contraseña
+    confirm_pass_placeholder: Confirmar contraseña
+    sing_in: Entrar
+    sing_up: Registrarse
+    remember_pass: Recuerda tu contraseña
+  menu:
+    buttons:
+      show_profile: Ver perfil
+      create_profile: Crear perfil
+      create_cv: Crear Curriculum
+      close: Cerrar sesión
+  profile:
+    create:
+      title: Crea tu Perfil.
+    edit:
+      title: Edita tu perfil.
+    form:
+      name: Nombre
+      last_name: Apellidos
+      age: Edad
+      phone: Teléfono
+      url_1: Sitio web 1
+      url_2: Sitio web 2
+      url_3: Sitio web 3
+      avatar: Imagen del perfil
+      submit: Enviar perfil
+      cancel: Cancelar
+      placeholder_url_1: "Escribe la dirección de tu web personal, por ejemplo: http://my-blog.com"
+      placeholder_url_2: "Escribe la dirección de tu web personal, por ejemplo: http://my-blog.com"
+      placeholder_url_3: "Escribe la dirección de tu web personal, por ejemplo: http://my-blog.com"
+  curriculum:
+    create:
+      title: Crea tu Curriculum Vitae
+    edit:
+      title: Edita tu Curriculum Vitae
+    form:    
+      professional_profile: Perfil profesional
+      placeholder_professional_profile: "Añade un perfil profesional como: Programador, Enfermero, Abogado..."
+      summary: Extracto
+      placeholder_summary: "Descríbete a tí mismo y tu actividad profesional"
+      mother_tongue: Lengua materna
+      placeholder_mother_tongue: 'Ejemplo: Español'
+      language_1: Idioma 1
+      language_2: Idioma 2
+      placeholder_language_1: 'Ejemplo: Inglés'
+      placeholder_language_2: 'Ejemplo: Francés'
+      other: Otros
+      placeholder_other: 'Observaciones como: Carnet de conducir, disponibilidad para viajar...'
+      job: Trabajo
+      company: Empresa
+      start_date: Fecha de inicio
+      end_date: Fecha de fin
+      description: Descripción
+      add_experience: Añadir experiencia
+      remove_experience: Eliminar experiencia
+      degree: Titulación
+      study_center: Centro
+      start_date: Fecha de inicio
+      end_date: Fecha de fin
+      add_education: Añadir educación
+      remove_education: Eliminar educación
+      name: Curso
+      study_center: Centro
+      hours: Horas
+      start_date: Fecha de inicio
+      end_date: Fecha de fin
+      remove_course: Eliminar Curso
+      add_course: Añadir curso
+      submit: Enviar
+      cancel: Cancelar
+      experiences: Experiencias
+      educations: Educación
+      courses: Cursos
+      languages: Idiomas
+      others: Otras observaciones
+  errors:
+    title: 'ERROR:'
+    date_validations: 'La fecha de inicio no puede ser mayor a la fecha de fin'
+
