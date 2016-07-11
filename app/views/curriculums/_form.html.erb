@@ -1,68 +1,78 @@
 <div class="panel panel-default">
   <div class="panel-body">
 		<%= form_for @curriculum, html:{class: "form-horizontal"}  do |f| %>
+			<% if @curriculum.errors.any? %>
+				<div class="alert alert-danger" role="alert">
+					<i class="fa fa-exclamation-circle"></i> <%= I18n.t('errors.title') %>
+					<ul>
+					<% @curriculum.errors.full_messages.each do |msg| %>
+      			<li><%= msg %></li>
+      		<% end %>
+					</ul>
+				</div>
+			<% end %>
 
 			<div class="form-group">
-			  <%= f.label :professional_profile, class: "col-sm-2"  %>
-			  <div class="col-sm-5"><%= f.text_field :professional_profile, placeholder: 'Enter your professional profile (examples: developer, manager, bussinessman...)', class: "form-control" %></div>
+			  *<%= f.label I18n.t('curriculum.form.professional_profile'), class: "col-sm-2"  %>
+			  <div class="col-sm-5"><%= f.text_field :professional_profile, placeholder: I18n.t('curriculum.form.placeholder_professional_profile'), class: "form-control" %></div>
 		  </div>
 			
 			<div class="form-group">
-			  <%= f.label :summary, class: "col-sm-2"  %>
-			  <div class="col-sm-5"><%= f.text_area :summary, placeholder: 'Describe yourself briefly', class: "form-control" %></div>
+			  <%= f.label I18n.t('curriculum.form.summary'), class: "col-sm-2"  %>
+			  <div class="col-sm-5"><%= f.text_area :summary, placeholder: I18n.t('curriculum.form.placeholder_summary'), class: "form-control" %></div>
 		  </div>
 		  <hr/>
 			
-			<h3>Experiencia</h3>
+			<h3><%= I18n.t('curriculum.form.experiences') %></h3>
 		  <div id: 'experiences'>
 		  	<%= f.fields_for :experiences do |experience| %>
 		  		<%= render 'experience_fields', f: experience %>
-		  		<%= link_to_add_association 'add experience', f, :experiences %>
+		  		<%= link_to_add_association I18n.t('curriculum.form.add_experience'), f, :experiences %>
 		  	<% end %>
 		  </div>
 			<hr/>
 
-			<h3>Educacion</h3>
+			<h3><%= I18n.t('curriculum.form.educations') %></h3>
 			<div id: 'educations'>
 				<%= f.fields_for :educations do |education| %>
 					<%= render 'education_fields', f: education %>
-		  		<%= link_to_add_association 'add education', f, :educations %>
+		  		<%= link_to_add_association I18n.t('curriculum.form.add_education'), f, :educations %>
 		  	<% end %>
 	  	</div>
 			<hr/>
 
-			<h3>Cursos</h3>
+			<h3><%= I18n.t('curriculum.form.courses') %></h3>
 			<div id: 'courses'>
 			<%= f.fields_for :courses do |course| %>
 				<%= render 'course_fields', f: course %>
-	  		<%= link_to_add_association 'add course', f, :courses %>
+	  		<%= link_to_add_association I18n.t('curriculum.form.add_course'), f, :courses %>
 			<% end %>
 			</div>	
 			<hr/>
 
-			<h3>Idiomas</h3>
+			<h3><%= I18n.t('curriculum.form.languages') %></h3>
 			<div class="form-group">
-			  <%= f.label :mother_tongue, class: "col-sm-2"  %>
-			  <div class="col-sm-5"><%= f.text_field :mother_tongue, placeholder: 'Example: English', class: "form-control" %></div>
+			  *<%= f.label  I18n.t('curriculum.form.mother_tongue'), class: "col-sm-2"  %>
+			  <div class="col-sm-5"><%= f.text_field :mother_tongue, placeholder: I18n.t('curriculum.form.placeholder_mother_tongue'), class: "form-control" %></div>
 			</div>
 			<div class="form-group">
-			  <%= f.label :language_1, class: "col-sm-2"  %>
-			  <div class="col-sm-5"><%= f.text_field :language_1, placeholder: 'Example: Spanish', class: "form-control" %></div>
+			  <%= f.label I18n.t('curriculum.form.language_1'), class: "col-sm-2"  %>
+			  <div class="col-sm-5"><%= f.text_field :language_1, placeholder: I18n.t('curriculum.form.placeholder_language_1'), class: "form-control" %></div>
 		  </div>
 			<div class="form-group">
-			  <%= f.label :language_2, class: "col-sm-2"  %>
-			  <div class="col-sm-5"><%= f.text_field :language_2, placeholder: 'Example: French', class: "form-control" %></div>
+			  <%= f.label I18n.t('curriculum.form.language_2'), class: "col-sm-2"  %>
+			  <div class="col-sm-5"><%= f.text_field :language_2, placeholder: I18n.t('curriculum.form.placeholder_language_2'), class: "form-control" %></div>
 		  </div>
 
-		  <h3>Otras observaciones:</h3>
+		  <h3><%= I18n.t('curriculum.form.others') %></h3>
 		  <div class="form-group">
-			  <%= f.label :other, class: "col-sm-2"  %>
-			  <div class="col-sm-5"><%= f.text_area :other, placeholder: 'Observations', class: "form-control" %></div>
+			  <%= f.label I18n.t('curriculum.form.other'), class: "col-sm-2"  %>
+			  <div class="col-sm-5"><%= f.text_area :other, placeholder: I18n.t('curriculum.form.placeholder_other'), class: "form-control" %></div>
 		  </div>
 
 			<div class="form-group">
-				<div class="col-sm-2"><%= f.submit "Enviar CV", class: "btn btn-success" %></div>
-				<div class="col-sm-10"><%= link_to "Inicio", authenticated_root_path, class: "btn btn-default" %></div>
+				<div class="col-sm-2"><%= f.submit I18n.t('curriculum.form.submit'), class: "btn btn-success" %></div>
+				<div class="col-sm-10"><%= link_to I18n.t('curriculum.form.cancel'), authenticated_root_path, class: "btn btn-default" %></div>
 			</div>
 		<% end %>
 	</div>
